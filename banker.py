@@ -191,16 +191,6 @@ def receiver_loop(port:int, is_oof_thread: bool = False) -> None:
                     # if not data: # No data indicates disconnect
                     #     add_to_output_area("Main", f"Player at {address[0]} disconnected.", s.COLORS.RED)
                     #     to_read.remove(reader) # remove from monitoring
-                if(len(to_read) == 1):
-                    if not is_oof_thread:
-                        if "-stayopen" not in sys.argv:
-                            add_to_output_area("Main", "All connections dropped. Receiver stopped.", COLORS.GREEN)
-                            return
-                        else:
-                            add_to_output_area("Main", "All connections dropped. Receiver will stay open.", COLORS.GREEN)
-                            # Reopen the server socket
-                            server_socket.close()
-                            start_server()
 
 def set_unittest() -> None:
     """
